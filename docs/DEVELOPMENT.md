@@ -17,8 +17,14 @@ python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements-dev.txt
 python -m pytest -q
-python multi-armed-bandit/experiment.py
+python multi-armed-bandit/experiment.py --n-runs 100 --output /tmp/bandit-preview
+# Reproduce full 5,000-run-per-condition experiment:
+python multi-armed-bandit/experiment.py --n-runs 5000 --output /tmp/bandit-reproduction
 ```
+
+### Documentation checks
+
+The pytest suite also checks for known unsupported GitHub math notation and broken relative Markdown links. Read the [bandit reading guide](../multi-armed-bandit/docs/reading-guide.md) before modifying the simulation. Use an explicit `--output` directory for experimental runs to avoid overwriting tracked CSVs and plots.
 
 ## Add a new algorithm
 
