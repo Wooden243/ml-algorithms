@@ -11,5 +11,6 @@ Create a new directory for each cohesive small algorithm or experiment. Split a 
 - [ ] Record seeds and experiment settings / シード・条件
 - [ ] Show results, limitations and next steps / 結果・限界・今後の課題
 - [ ] Confirm sharing permissions and remove credentials, personal data, and restricted course material / 公開可否・秘匿情報
+- [ ] Keep source labels concise (e.g. 「講義スライド」「グループ発表スライド」); distinguish original derivations from source summaries / 出典は簡潔にし、追加の導出と資料内容を区別
 
 Do not add empty implementation directories merely to suggest completed work. Update the top-level README when adding an actual implementation.
