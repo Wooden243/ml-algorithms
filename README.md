@@ -16,10 +16,11 @@ Softmax、Attention、最適化アルゴリズム（Adamなど）、ニューラ
 
 新しい成果物の記録形式は [追加用チェックリスト](docs/PROJECT_TEMPLATE.md) にまとめています。
 
-## 多腕バンディットの理論・分析資料
+## 多腕バンディット：読む順序と資料
 
-- [理論・公式・導出](multi-armed-bandit/docs/theory-and-derivations.md)
-- [授業グループ発表の分析レポート](multi-armed-bandit/docs/presentation-analysis.md)
+1. [実装・学習ガイド](multi-armed-bandit/docs/reading-guide.md)：問題設定とコードの対応
+2. [理論・公式・導出](multi-armed-bandit/docs/theory-and-derivations.md)：数式の意味と導出
+3. [グループ発表の分析レポート](multi-armed-bandit/docs/presentation-analysis.md)：別条件の実験設計・結果・考察
 
 **注記**：発表時のモデル設定と現在のPython実装は一部異なります。差分・結果の扱いはリンク先の資料で明示しています。
 
@@ -30,10 +31,10 @@ Python 3.10+。リポジトリのルートで以下を実行してください�
 ```bash
 python -m pip install -r requirements-dev.txt
 python -m pytest -q
-python multi-armed-bandit/experiment.py
+python multi-armed-bandit/experiment.py --n-runs 100 --output /tmp/bandit-preview
 ```
 
-実験スクリプトは `multi-armed-bandit/results/` に集計CSVとグラフを出力します。
+実験スクリプトは集計CSVとグラフを生成します。上記は軽量な試運転として `/tmp/bandit-preview` に保存するため、コミット済みの実験結果を上書きしません。本来の各条件5,000試行を実行するには `--n-runs 5000` を指定してください。
 
 ## 成果物の位置づけ
 
