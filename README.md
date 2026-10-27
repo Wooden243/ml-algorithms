@@ -16,6 +16,13 @@ Softmax、Attention、最適化アルゴリズム（Adamなど）、ニューラ
 
 新しい成果物の記録形式は [追加用チェックリスト](docs/PROJECT_TEMPLATE.md) にまとめています。
 
+## 多腕バンディットの理論・分析資料
+
+- [理論・公式・導出](multi-armed-bandit/docs/theory-and-derivations.md)
+- [授業グループ発表の分析レポート](multi-armed-bandit/docs/presentation-analysis.md)
+
+**注記**：発表時のモデル設定と現在のPython実装は一部異なります。差分・結果の扱いはリンク先の資料で明示しています。
+
 ## 実行環境
 
 Python 3.10+。リポジトリのルートで以下を実行してください。
