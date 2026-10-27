@@ -27,7 +27,10 @@ Q_{t+1}(a_t)=Q_t(a_t)+\alpha\bigl(R_t-Q_t(a_t)\bigr).
 
 `alpha` は新しい報酬を推定値に反映する強さ、`epsilon` は探索と活用のバランスを決めます。
 
-## 理論資料・発表分析（講義資料に基づく補足）
+## 読み方・理論・分析
+
+まずは [**コード読解ガイド**](docs/reading-guide.md) で「問題設定 → Q値更新 → NumPy実装 → 実験評価」を把握し、必要に応じて数式・発表分析へ進んでください。
+
 
 - [**理論・公式・導出ノート**](docs/theory-and-derivations.md)：期待報酬・分散、標本平均と固定学習率のQ値更新、ε-greedyの選択確率、予算・破産率などの導出、NumPy実装との対応。
 - [**発表スライドの分析レポート**](docs/presentation-analysis.md)：授業グループ発表の基本モデル、希少高額報酬モデル、予算を変えた追加検証、結論・限界の整理。
@@ -38,14 +41,20 @@ Q_{t+1}(a_t)=Q_t(a_t)+\alpha\bigl(R_t-Q_t(a_t)\bigr).
 
 - [`bandit.py`](bandit.py)：NumPyの配列演算で5,000試行をまとめて処理するシミュレーション。シード、破産判定、行動価値更新、指標集計を実装。
 - [`experiment.py`](experiment.py)：9条件を実行してCSV・グラフ5点を作成。
-- [`tests/test_bandit.py`](tests/test_bandit.py)：再現性、会計関係、常に成功／失敗する境界条件、無効入力をテスト。
+- [`tests/test_bandit.py`](tests/test_bandit.py)：再現性、会計関係、成功／失敗の境界条件、無効入力をテスト。
+- [`tests/test_documentation.py`](tests/test_documentation.py)：GitHub非対応の数式記法や壊れたMarkdownリンクの混入を検出。
 - [`notebooks/original_course_simulation.ipynb`](notebooks/original_course_simulation.ipynb)：授業時のコード構造を残したノートブック。公開用にセル出力と環境メタデータを削除。
 
 ```bash
 # リポジトリのルートから
 python -m pip install -r requirements-dev.txt
 python -m pytest -q
-python multi-armed-bandit/experiment.py
+
+# まず小規模に試す。記録済みresults/を上書きしない
+python multi-armed-bandit/experiment.py --n-runs 100 --output /tmp/bandit-preview
+
+# 公開済みの設定（各条件5000試行）を再計算する
+python multi-armed-bandit/experiment.py --n-runs 5000 --output /tmp/bandit-reproduction
 ```
 
 ## 実験方法
@@ -103,6 +112,6 @@ python multi-armed-bandit/experiment.py
 3. 環境報酬系列を共通化して、条件比較の乱数差を抑制。
 4. UCB・Thompson Samplingと比較し、探索方策の違いを分析。
 
-## 出典・制作経緯
+## 制作経緯・資料
 
-2026年春学期の授業「実践的機械学習II」で作成したGoogle Colabノートブックを元に、公開用の構成整理、入力検証、テスト、実験再現スクリプトを追加しました。これらの整理・ドキュメント作成にはAI支援を利用しています。授業配布資料や第三者の著作物は含めていません。授業の公開条件がある場合には、それを優先してください。
+本プロジェクトは授業「実践的機械学習II」で作成したColabノートブックを出発点に、公開用の構成整理、入力検証、自動テスト、実験スクリプト、解説資料を追加したものです。公開用の整理・文書化にはAI支援を使用しています。理論の参考資料は**講義スライド**、実験の報告内容は**グループ発表スライド**です。スライド原本や第三者の資料は転載していません。
