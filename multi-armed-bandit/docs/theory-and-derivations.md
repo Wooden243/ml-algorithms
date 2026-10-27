@@ -22,7 +22,7 @@ $$
 
 ## 2. 成功確率から期待報酬を導く
 
-成功確率を $p_a$、成功報酬を $g$、失敗報酬を $-\ell$（$\ell>0$）とする。成功を表す確率変数 $X\sim\operatorname{Bernoulli}(p_a)$ を用いると、
+成功確率を $p_a$、成功報酬を $g$、失敗報酬を $-\ell$（$\ell>0$）とする。成功を表す確率変数 $X\sim\mathrm{Bernoulli}(p_a)$ を用いると、
 
 $$
 R=(g+\ell)X-\ell.
@@ -39,10 +39,10 @@ $$
 \end{aligned}
 $$
 
-ベルヌーイ変数の分散 $\operatorname{Var}(X)=p_a(1-p_a)$ を利用すれば、
+ベルヌーイ変数の分散 $\mathrm{Var}(X)=p_a(1-p_a)$ を利用すれば、
 
 $$
-\operatorname{Var}(R\mid A=a)=(g+\ell)^2p_a(1-p_a).
+\mathrm{Var}(R\mid A=a)=(g+\ell)^2p_a(1-p_a).
 $$
 
 ### モデル①：発表スライドの基本設定（±1）
@@ -131,7 +131,7 @@ $$
 \mathbb E[Q_{n+1}]-\mu=(1-\alpha)^n(Q_1-\mu).
 $$
 
-また、分散 $v_n=\operatorname{Var}(Q_n)$ は $v_{n+1}=(1-\alpha)^2v_n+\alpha^2\sigma^2$ に従う。定常極限で
+また、分散 $v_n=\mathrm{Var}(Q_n)$ は $v_{n+1}=(1-\alpha)^2v_n+\alpha^2\sigma^2$ に従う。定常極限で
 
 $$
 v_\infty=\frac{\alpha}{2-\alpha}\sigma^2.
