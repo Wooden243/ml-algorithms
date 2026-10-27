@@ -76,12 +76,13 @@ def simulate_budget_path(
     rng = np.random.default_rng(seed)
 
     # 5,000試行それぞれについて、良い腕を1本ランダムに決める。
+    # １行の配列を作る。5,000回分の試行の中で、k個の腕の内何番目が当たりか
     # 例：[3, 8, 0, 3, ...]
     # 数値は腕のインデックス（0～K-1）。
     good_arms = rng.integers(0, K, size=n_runs)
 
     # 各試行の各腕に対する行動価値Qを0で初期化する。
-    # 形状：(n_runs, K) → 通常は(5000, 10)。
+    # 形状：(n_runs, K) → 通常は(5000, 10) cf. 5,000×10行列
     q_values = np.zeros((n_runs, K), dtype=float)
 
     # すべての試行の現在予算をinitial_budgetに設定する。
