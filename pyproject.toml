@@ -1,0 +1,3 @@
+[tool.pytest.ini_options]
+testpaths = ["multi-armed-bandit/tests"]
+pythonpath = ["multi-armed-bandit"]
